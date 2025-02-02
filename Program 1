@@ -1,0 +1,52 @@
+# Stack implementation using list to demonstrate encapsulation
+class Stack:
+    def __init__(self):
+        self._items = []  # Protected member
+    def push(self, item):
+        self._items.append(item)
+    def pop(self):
+        if not self.is_empty():
+            return self._items.pop()
+        raise IndexError("pop from empty stack")
+    def is_empty(self):
+        return not self._items
+my_stack = Stack()
+my_stack.push(10)
+my_stack.push(20)
+print(my_stack.pop())
+print(my_stack.pop())
+
+
+#Solution
+
+import java.util.ArrayList;
+import java.util.List;
+
+// Stack implementation using encapsulation
+class Stack {
+    private List<Integer> items; // Encapsulated list
+
+    // Constructor
+    public Stack() {
+        this.items = new ArrayList<>();
+    }
+
+    // Push method
+    public void push(int item) {
+        items.add(item);
+    }
+
+    // Pop method with error handling
+    public int pop() {
+        if (!isEmpty()) {
+            return items.remove(items.size() - 1);
+        } else {
+            throw new IndexOutOfBoundsException("pop from empty stack");
+        }
+    }
+
+    // Check if stack is empty
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
+}
