@@ -1,0 +1,71 @@
+# Simple banking system using classes and encapsulation
+class Account:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self._balance = balance  # Encapsulated attribute
+    def deposit(self, amount):
+        if amount > 0:
+            self._balance += amount
+            print(f"Added {amount} to the balance")
+        else:
+            print("Deposit amount must be positive")
+    def withdraw(self, amount):
+        if 0 < amount <= self._balance:
+            self._balance -= amount
+            print(f"Withdrew {amount} from the balance")
+        else:
+            print("Invalid withdrawal amount")
+    def get_balance(self):
+        return self._balance
+acc = Account("John")
+acc.deposit(100)
+acc.withdraw(50)
+print("Current balance:", acc.get_balance())
+
+
+#Solution
+// Banking system using encapsulation
+class Account {
+    private String owner;  // Account owner
+    private double balance; // Encapsulated balance attribute
+
+    // Constructor
+    public Account(String owner) {
+        this.owner = owner;
+        this.balance = 0; // Default balance
+    }
+
+    // Deposit method
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Added " + amount + " to the balance");
+        } else {
+            System.out.println("Deposit amount must be positive");
+        }
+    }
+
+    // Withdraw method
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrew " + amount + " from the balance");
+        } else {
+            System.out.println("Invalid withdrawal amount");
+        }
+    }
+
+    // Getter method to access balance
+    public double getBalance() {
+        return balance;
+    }
+
+    // Main method to test the banking system
+    public static void main(String[] args) {
+        Account acc = new Account("John"); // Creating an account
+        acc.deposit(100); // Depositing money
+        acc.withdraw(50); // Withdrawing money
+        System.out.println("Current balance: " + acc.getBalance()); // Displaying balance
+    }
+}
+
